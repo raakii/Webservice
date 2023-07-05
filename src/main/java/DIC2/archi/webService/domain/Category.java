@@ -1,4 +1,4 @@
-package domain;
+package DIC2.archi.webService.domain;
 
 public class Category {
 
