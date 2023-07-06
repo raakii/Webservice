@@ -1,10 +1,11 @@
 package DIC2.archi.webService.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Category")
@@ -24,5 +25,7 @@ public class Category {
     private Integer id;
 
     private String libelle;
+    @OneToMany(mappedBy = "category")
+    private List<Article> articles;
 
 }
