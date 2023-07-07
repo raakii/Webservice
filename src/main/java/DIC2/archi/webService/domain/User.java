@@ -1,30 +1,29 @@
 package DIC2.archi.webService.domain;
+
+
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
-@Table(name = "Category")
+@Table(name = "User")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Category {
+public class User {
     @Id
     @SequenceGenerator(
-            name = "cat_seq",
-            sequenceName = "cat_seq",
+            name = "user_seq",
+            sequenceName = "user_seq",
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "cat_seq"
+            generator = "user_seq"
     )
-    private Integer id;
-
-    private String libelle;
-    @OneToMany(mappedBy = "category")
-    private List<Article> articles;
-
+    private Long id;
+    private String nom;
+    private  String prenom;
+    private  String email;
 }
