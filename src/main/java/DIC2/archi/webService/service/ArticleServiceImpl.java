@@ -3,6 +3,10 @@ package DIC2.archi.webService.service;
 import DIC2.archi.webService.domain.Article;
 import DIC2.archi.webService.repository.ArticleRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,6 +39,12 @@ public class ArticleServiceImpl implements ArticleService {
 
     public List<Article> getAllArticles() {
         return articleRepository.findAll();
+    }
+
+    @Override
+    public Page<Article> getArticlesByPage(Long pageNumer) {
+        Pageable page = PageRequest.of(Math.toIntExact(pageNumer), 4, Sort.by("id").descending());
+        return  articleRepository.findAll( page);
     }
 
 
