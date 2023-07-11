@@ -26,8 +26,10 @@ public class Article {
 
     private String title;
 
+    @Column(columnDefinition="TEXT")
     private String description;
 
+    @Column(columnDefinition="TEXT")
     private String content;
     @ManyToOne
     @JoinColumn(name = "category_id")

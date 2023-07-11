@@ -1,7 +1,6 @@
 package DIC2.archi.webService.service;
 
 import DIC2.archi.webService.domain.Article;
-import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -11,5 +10,5 @@ public interface ArticleService {
     String delete(Long id);
     List<Article> getAllArticles();
 
-    Page<Article> getArticlesByPage(Long pageNumber);
+    List<Article> getArticlesByPage(Long pageNumber);
 }

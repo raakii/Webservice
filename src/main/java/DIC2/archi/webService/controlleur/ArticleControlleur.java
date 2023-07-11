@@ -19,8 +19,9 @@ public class ArticleControlleur {
         return articleService.getAllArticles();
     }
 
-    @GetMapping("/get")
-    public Page<Article> getArticleByPage(@RequestParam(defaultValue = "0") Long pageNumber) { return articleService.getArticlesByPage(pageNumber);}
+    @GetMapping("/get/{pageNumber}")
+    public List<Article> getArticleByPage(@RequestParam(defaultValue = "0") Long pageNumber) { return articleService.getArticlesByPage(pageNumber);}
+
     @PostMapping("/create")
     public Article  createArticle(@RequestBody Article article) {
         return articleService.create(article);
